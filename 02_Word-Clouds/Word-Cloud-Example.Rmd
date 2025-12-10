@@ -1,0 +1,190 @@
+---
+title: 'Exploring Metabolism Literature'
+author: "Jonny Behrens"
+date: "`r Sys.Date()`"
+---
+
+# Set Up Environment
+
+```{r setup, echo = FALSE, warning= FALSE, message=FALSE, results='hide'}
+# Set working directory. Ensure the .here file is stored in desired working directory
+knitr::opts_knit$set(root.dir = here::here())
+
+# Some knit settings 
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+## Clear environment
+rm(list = ls())
+
+## Libraries
+library(pacman)
+p_load(ggpubr, data.table,readxl,tidyverse)
+p_load(wordcloud, tm)
+```
+
+# Literature Review Metadata
+
+A selection of publications focused on stream metabolism was pulled and downloaded from Web of Science. 
+
+```{r}
+all_metab_papers<-read_excel("~/1_R/_WaDE/Exploration/5_SUSE-WG/raw_data/WoS_metab_2025-12-10.xls")
+
+urban_metab_papers<-read_excel("~/1_R/_WaDE/Exploration/5_SUSE-WG/raw_data/WoS_urban-metab_2025-12-10.xls")
+```
+
+# Visualize
+
+This is developed from code shared in this tutorial of the R package tm: https://codepointtech.com/master-word-clouds-in-r-a-step-by-step-guide/
+
+```{r}
+fxn_clean_text<-function(data = data){
+  
+  # Create the corpus from the vector 
+  all_text<- data
+  
+  text_corpus <- Corpus(VectorSource(all_text))
+  
+  # Do some initial cleaning
+  ## lower case
+  text_corpus <- tm_map(text_corpus, content_transformer(tolower))
+  ## no punctuation 
+  text_corpus <- tm_map(text_corpus, removePunctuation)
+  ## no numbers
+  text_corpus <- tm_map(text_corpus, removeNumbers)
+  # Remove common English stopwords
+  text_corpus <- tm_map(text_corpus, removeWords, stopwords("english"))
+  # remove custom stopwords
+  custom_stopwords <- c("also", "can", "however", "found", "used", "use", "using")
+  text_corpus <- tm_map(text_corpus, removeWords, custom_stopwords)
+  # combine common phrases
+  text_corpus <- tm_map(text_corpus, content_transformer(function(x) {
+    x<- gsub("gross primary production", "gpp_", x, ignore.case = TRUE)
+    x<- gsub("\\bgpp\\b", "gpp_", x, ignore.case = TRUE)
+    x<- gsub("ecosystem respiration", "er_", x, ignore.case = TRUE)
+    x<- gsub("\\ber\\b", "er_", x, ignore.case = TRUE)
+    x<- gsub("ecosystem metabolism", "ecosystem_metab", x, ignore.case = TRUE)
+    return(x)}))
+  # no whitespace
+  text_corpus <- tm_map(text_corpus, stripWhitespace)
+  
+  return(text_corpus)
+  
+}
+
+fxn_word_count<-function(data_corpus = data_corpus){
+  
+  # Create a Term-Document Matrix
+  tdm <- TermDocumentMatrix(data_corpus)
+  
+  # Convert TDM to a plain matrix
+  matrix_tdm <- as.matrix(tdm)
+  
+  # Calculate word frequencies
+  word_freqs_raw <- matrix_tdm %>% 
+    # simplify so it only counts for every paper, not within paper
+    as.data.frame() %>% 
+    mutate(across(where(is.numeric), ~ if_else(. == 0, 0, 1))) %>% 
+    as.matrix() 
+  
+  word_freqs<-sort(rowSums(word_freqs_raw), decreasing = TRUE)
+  
+  return(word_freqs)
+    
+}
+```
+
+## All Streams
+
+```{r}
+allstream_abstracts_text_corpus<-fxn_clean_text(all_metab_papers$Abstract)
+allstream_abstracts_word_count<-fxn_word_count(allstream_abstracts_text_corpus)
+
+# view
+data_frame_freqs <- data.frame(word = names(allstream_abstracts_word_count), freq = allstream_abstracts_word_count)
+print(data_frame_freqs)
+
+# Generate the word cloud
+wordcloud(
+  words = names(allstream_abstracts_word_count),
+  freq = allstream_abstracts_word_count,
+  min.freq = 1,
+  max.words = 50, # Display top 50 words
+  random.order = FALSE, # Plot words in decreasing frequency
+  colors = brewer.pal(8, "Dark2"), # Use a color palette from RColorBrewer
+  rot.per = 0.3 # 30% of words rotated vertically
+)
+title(ylab = "All Stream Papers \n Word Cloud of Abstracts", cex.lab = 1.4, line = 1)
+```
+
+```{r}
+allstreams_title_text_corpus<-fxn_clean_text(all_metab_papers$`Article Title`)
+allstreams_title_word_count<-fxn_word_count(allstreams_title_text_corpus)
+
+# view
+data_frame_freqs <- data.frame(word = names(allstreams_title_word_count), freq = allstreams_title_word_count)
+print(data_frame_freqs)
+
+# Generate the word cloud
+wordcloud(
+  words = names(allstreams_title_word_count),
+  freq = allstreams_title_word_count,
+  min.freq = 1,
+  max.words = 50, # Display top 50 words
+  random.order = FALSE, # Plot words in decreasing frequency
+  colors = brewer.pal(8, "Dark2"), # Use a color palette from RColorBrewer
+  rot.per = 0.3 # 30% of words rotated vertically
+)
+title(ylab = "All Stream Papers \n Word Cloud of Titles", cex.lab = 1.4, line = 1)
+```
+
+## Urban Streams
+
+```{r}
+urban_title_text_corpus<-fxn_clean_text(urban_metab_papers$`Article Title`)
+urban_title_word_count<-fxn_word_count(urban_title_text_corpus)
+
+# view
+data_frame_freqs <- data.frame(word = names(urban_title_word_count), freq = urban_title_word_count)
+print(data_frame_freqs)
+
+# Generate the word cloud
+wordcloud(
+  words = names(urban_title_word_count),
+  freq = urban_title_word_count,
+  min.freq = 1,
+  max.words = 50, # Display top 50 words
+  random.order = FALSE, # Plot words in decreasing frequency
+  colors = brewer.pal(8, "Dark2"), # Use a color palette from RColorBrewer
+  rot.per = 0.3 # 30% of words rotated vertically
+)
+title(ylab = "Urban Stream Papers \n Word Cloud of Abstracts", cex.lab = 1.4, line = 1)
+```
+
+```{r}
+urban_title_text_corpus<-fxn_clean_text(urban_metab_papers$`Article Title`)
+urban_title_word_count<-fxn_word_count(urban_title_text_corpus)
+
+# view
+data_frame_freqs <- data.frame(word = names(urban_title_word_count), freq = urban_title_word_count)
+print(data_frame_freqs)
+
+# Generate the word cloud
+wordcloud(
+  words = names(urban_title_word_count),
+  freq = urban_title_word_count,
+  min.freq = 1,
+  max.words = 50, # Display top 50 words
+  random.order = FALSE, # Plot words in decreasing frequency
+  colors = brewer.pal(8, "Dark2"), # Use a color palette from RColorBrewer
+  rot.per = 0.3 # 30% of words rotated vertically
+)
+title(ylab = "Urban Stream Papers \n Word Cloud of Titles", cex.lab = 1.4, line = 1)
+```
+
+```{r}
+
+```
+
+
+
+
