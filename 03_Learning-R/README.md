@@ -37,3 +37,16 @@ Check out this tutorial (created by Maggie and I) that gives you a set of data a
   * RStudio: working within the user interface
 * Workshop to learn how to visualize data with the common package ggpplot2: https://github.com/jbehrens33/ggplot2-workshop.
 
+# 4\. Help I Have Specific Questions!
+
+Alas, with any coding, you will run into errors as you learn a new language. And then once you know it well, you'll run into errors as you work with new datasets or try new analyses. Fear not, you are not alone. When you have issues I recommend the following: 
+
+* Google your issue. Be as specific as possible, if there's a specific package you're using mention it. For example: "How do I add a figure caption, in R using ggplot2". 
+
+  * Stack Overflow is often where you'll find answers. https://stackoverflow.com/questions. Note that there are often multiple ways to do the same thing, so look for an answer that makes sense to you and try it out. Still verify it worked, as not every solution will work.
+* Explore websites that often have clear R guidance and answers
+
+  * A few that often pop up for me, especially for data analysis and visualizations are: https://www.sthda.com and https://www.statology.org/r-guides and https://r-charts.com.
+
+
+
