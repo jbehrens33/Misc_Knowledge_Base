@@ -47,6 +47,11 @@ Alas, with any coding, you will run into errors as you learn a new language. And
 * Explore websites that often have clear R guidance and answers
 
   * A few that often pop up for me, especially for data analysis and visualizations are: https://www.sthda.com and https://www.statology.org/r-guides and https://r-charts.com.
+* AI can be useful but use with caution. AI has a tendency to (1) overcomplicate code, making the solution more complex than it needs to be, (2) making up functions or functionalities, or (3) providing code that doesn't actually do what is desired. If using AI, here are my tips and tricks
+
+  * (1) Always ask for specific sources (copilot is good for this). AI can be a great tool to search, as you might not know what terms to use, but the source material is likely to be far more informative and have words of caution.
+  * (2) Always check the code AI provides. It might look convincing, but ensure it actually did what you expected it to do. The code might run without errors, but not actually do what you desire. 
+  * (3) AI is great for interpreting error messages. Copy and paste the full error message (and even the code that led to such), and see what AI finds to be the issue. Again, still follow point (2), but this can help catch silly mistakes rapidly. 
 
 
 
