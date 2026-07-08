@@ -1,12 +1,12 @@
 # Motivation
 
-R is a helpful tool for managing large datasets and analysis. It can be a bit challenging to learn this (you indeed are learning a new language!) thus this is a set of resources I've amassed over the years to help people new to R. There are so many wonderful resources online beyond this, so feel free to use this as a starting point. 
+R is a helpful tool for managing large datasets and analysis. It can be a bit challenging to learn this (you indeed are learning a new language!) thus this is a set of resources I've amassed over the years to help people new to R. There are so many wonderful resources online beyond this, so feel free to use this as a starting point.
 
 
 
 # 1\. Download R and R Studio
 
-Download the "base" option from here for R: https://cran.rstudio.com/ 
+Download the "base" option from here for R: https://cran.rstudio.com/
 
 Then download the RStudio (IDE) for desktop here: https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads
 
@@ -16,32 +16,23 @@ RStudio is the user interface for working in R; it's effectively a software that
 
 
 
-Having issues? Check out this helpful resource: https://www.usu.edu/math/schneit/StatsStuff/R/RInstall. 
+Having issues? Check out this helpful resource: https://www.usu.edu/math/schneit/StatsStuff/R/RInstall.
 
 
 
-# 2\. Check out our tutorial
+# 2\. Tutorial on Data Analysis
 
-Check out this tutorial (created by Maggie and I) that gives you a set of data and code to try out working in R. https://github.com/margaret-swift/ellerbe-creek. 
-
-
-
-# 3\. Other great tutorials
-
-* Workshop to learn how to visualize data with the common package ggpplot2: https://github.com/jbehrens33/ggplot2-workshop. 
-* 
+Check out this tutorial (created by Maggie and I) that gives you a set of data and code to try out working in R. https://github.com/margaret-swift/ellerbe-creek.
 
 
 
-# 4\. Other great resources
+# 3\. Other Great Resources
 
+* Cheat sheets are a wonderful way to see how to use a bunch of functions in popular packages. A full list can be found here: https://rstudio.github.io/cheatsheets/. In addition to the cheat sheets, each of the pages gives a set of great examples of how to use code. To highlight a few: 
 
-
-
-
-
-
-
-
-
+  * ggplot2: visualizations of data
+  * dplyr and tidyr: data manipulation, transformation, and cleaning
+  * stringr: manipulating strings and text
+  * RStudio: working within the user interface
+* Workshop to learn how to visualize data with the common package ggpplot2: https://github.com/jbehrens33/ggplot2-workshop.
 
