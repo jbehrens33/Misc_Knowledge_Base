@@ -53,9 +53,10 @@ Alas, with any coding, you will run into errors as you learn a new language. And
 
     * (A) Ask AI why you got an error message and how to resolve it (could even include the code). AI might identify a simple fix, and then you can put that fix to the test. 
     * (B) Ask AI if functions or packages exist to do a certain analysis or visualization. Then you can verify that those functions do exist and work the way you expected. 
-    * (C) Ask AI what is needed to run a function or what the inputs actually mean (or need to look like). This is also a great point to ask for a source, as every function and package has documentation. 
+    * (C) Ask AI what is needed to run a function or what the inputs actually mean (or need to look like). At this point I like asking for a link to a source, as every function and package has documentation. 
   * (2) I always ask for specific sources (copilot is good for this). AI can be a great tool to search, as you might not know what terms to use, but the source material is likely to be far more informative and have words of caution.
   * (3) Just because code runs without errors doesn't mean it actually does what you want. Always double check that the code did what you wanted. It likely will be iterative.
+  * This is a great overview of how to use AI for code debugging: https://codeillusion.io/using-ai-to-debug-code
 
 
 
