@@ -41,17 +41,21 @@ Check out this tutorial (created by Maggie and I) that gives you a set of data a
 
 Alas, with any coding, you will run into errors as you learn a new language. And then once you know it well, you'll run into errors as you work with new datasets or try new analyses. Fear not, you are not alone. When you have issues I recommend the following: 
 
-* Google your issue. Be as specific as possible, if there's a specific package you're using mention it. For example: "How do I add a figure caption, in R using ggplot2". 
+* Google your issue. Be as specific as possible, if there's a specific package you're using, mention it. For example: "add a figure caption in R using ggplot2". 
 
-  * Stack Overflow is often where you'll find answers. https://stackoverflow.com/questions. Note that there are often multiple ways to do the same thing, so look for an answer that makes sense to you and try it out. Still verify it worked, as not every solution will work.
+  * Stack Overflow is often where you'll find answers: https://stackoverflow.com/questions. This public forum has many experts who provide great input to common questions. Note that there are often multiple ways to do the same thing, so look for an answer that makes sense to you and try it out. Still verify it worked, as not every solution will work.
 * Explore websites that often have clear R guidance and answers
 
   * A few that often pop up for me, especially for data analysis and visualizations are: https://www.sthda.com and https://www.statology.org/r-guides and https://r-charts.com.
-* AI can be useful but use with caution. AI has a tendency to (1) overcomplicate code, making the solution more complex than it needs to be, (2) making up functions or functionalities, or (3) providing code that doesn't actually do what is desired. If using AI, here are my tips and tricks
+* AI can be useful but use with caution. AI has a tendency to (1) overcomplicate code, making the solution more complex than it needs to be, (2) making up functions or functionalities, or (3) providing code that doesn't actually do what is desired. If using AI, here are my tips and tricks:
 
-  * (1) Always ask for specific sources (copilot is good for this). AI can be a great tool to search, as you might not know what terms to use, but the source material is likely to be far more informative and have words of caution.
-  * (2) Always check the code AI provides. It might look convincing, but ensure it actually did what you expected it to do. The code might run without errors, but not actually do what you desire. 
-  * (3) AI is great for interpreting error messages. Copy and paste the full error message (and even the code that led to such), and see what AI finds to be the issue. Again, still follow point (2), but this can help catch silly mistakes rapidly. 
+  * (1) Assume AI is full of BS, no matter how convincing it sounds. This actually is great for learning though. Because AI will give you a starting point that you can then proceed forward from; it gives you a hypothesis that you can then test. For example: 
+
+    * (A) Ask AI why you got an error message and how to resolve it (could even include the code). AI might identify a simple fix, and then you can put that fix to the test. 
+    * (B) Ask AI if functions or packages exist to do a certain analysis or visualization. Then you can verify that those functions do exist and work the way you expected. 
+    * (C) Ask AI what is needed to run a function or what the inputs actually mean (or need to look like). This is also a great point to ask for a source, as every function and package has documentation. 
+  * (2) I always ask for specific sources (copilot is good for this). AI can be a great tool to search, as you might not know what terms to use, but the source material is likely to be far more informative and have words of caution.
+  * (3) Just because code runs without errors doesn't mean it actually does what you want. Always double check that the code did what you wanted. It likely will be iterative.
 
 
 
