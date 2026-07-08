@@ -29,7 +29,6 @@ Check out this tutorial (created by Maggie and I) that gives you a set of data a
 # 3\. Other Great Resources
 
 * A wonderful introduction to R: https://www.stepbystepdatascience.com/intro-to-r and data wrangling with dplyr: https://www.stepbystepdatascience.com/data-wrangling-with-dplyr. 
-* set of tutorials for new R users: https://www.stepbystepdatascience.com/r-tutorials
 * Cheat sheets are a wonderful way to see how to use a bunch of functions in popular packages. A full list can be found here: https://rstudio.github.io/cheatsheets/. In addition to the cheat sheets, each of the pages gives a set of great examples of how to use code. To highlight a few: 
 
   * ggplot2: visualizations of data
